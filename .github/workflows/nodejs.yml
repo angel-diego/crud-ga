@@ -25,4 +25,4 @@ jobs:
         cache: 'npm'
     - run: npm install -y
 #    - run: npm ci
-    - run: sudo ./start.sh
+    - run: bash start.sh
