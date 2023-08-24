@@ -25,4 +25,4 @@ jobs:
         cache: 'npm'
     - run: npm install -y
 #    - run: npm ci
-    - run: node app.js
+    - run: ./start.sh
