@@ -25,5 +25,4 @@ jobs:
         cache: 'npm'
     - run: npm install -y && npm start
 #    - run: npm ci
-    - name: Hola mundo 
     - run: echo"hola mundo"
