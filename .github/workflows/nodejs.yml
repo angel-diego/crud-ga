@@ -26,4 +26,3 @@ jobs:
     - run: npm install -y
     - run: bash start.sh &
 #    - run: npm ci
-    - run: echo"hola mundo"
