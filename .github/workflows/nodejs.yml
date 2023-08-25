@@ -23,6 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install -y && npm start
+    - run: npm install -y
+    - run: bash start.sh &
 #    - run: npm ci
     - run: echo"hola mundo"
