@@ -1,0 +1,43 @@
+version: '3'
+services:
+  mysqlc:
+    container_name: mysqlc
+    image: mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=crud_nodejs
+    volumes:
+      - /home/vm/data/:/var/lib/mysql
+    networks:
+      - net-phpmsql
+    restart: always
+
+  php:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=mysqlc
+    ports:
+      - 8080:80
+    restart: always                                                                                      
+    networks:                                                                                            
+      - net-phpmsql                                                                                      
+    depends_on:                                                                                          
+      - mysqlc
+  
+  nodejs:
+    container_name: node
+    image: angeldiego/crud:1
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - net-phpmsql
+    depends_on:
+      - mysqlc
+networks:
+  net-phpmsql:
